@@ -1,0 +1,51 @@
+
+.connectWallet{
+    position:absolute;
+    top: 0;
+    right: 0;
+    padding: auto;
+    margin: 20px;
+    background-color: #10185C;
+    height: 70px;
+    border-radius: 15px;
+}
+#connect{
+    
+    color: #7FDD6F;
+}
+.postForm{
+    
+    height: 50%;
+    text-align: center;
+    column-gap: 10px;
+    width: 50%;
+   position:fixed;
+    border-radius: 15px;
+    border-color: #10185C;
+    float: left;
+    border-width: 2px;
+    border-style: solid;
+    margin-left: 25px;
+    margin-top: 25px;
+    background: #D9D9D9;
+}
+.open_submit{
+    position:fixed;
+    bottom: 0px;
+    margin-bottom: 100px;
+
+}
+.btnClose{
+    margin-left: 100px;
+    width: 80px;
+    background: #1D2132;
+    color:white;
+}
+.btnPost{
+    margin-left: 300px;
+    width: 80px;
+    background: #1D2132;
+    color: white;
+    
+
+}

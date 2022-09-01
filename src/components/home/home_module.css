@@ -1,0 +1,63 @@
+.sideBar{
+    float: left;
+    width: 250px;
+    height: 500px;
+   
+    margin-top: 100px;
+    margin-left: 25px;
+    border-radius: 15px;
+    background:#E1D5D5;
+}
+.home{
+    height: 100%;
+    width: 100%;
+    background-color: #9AAEF5;
+}
+.appExplanation{
+    float:right;
+    width: 65%;
+    height: 200px;
+    border-radius: 15px;
+    margin-top: 150px;
+    margin-right: 10px;
+    background: #9AAEF5;
+    position: relative;
+    font-family: montserrat;
+}
+.about{
+    float:right;
+    width: 65%;
+    height: 150px;
+    border-radius: 15px;
+    margin-top: 100px;
+    margin-right: 10px;
+    
+    background:#E1D5D5;
+    position: relative;
+}
+.logo{
+    position:absolute;
+    top:0;
+    left:0;
+    margin-left: 25px;
+    
+}
+.aboutList{
+    float: left;
+    top: 0;
+}
+.Tender{
+    border-radius: 15px;
+    background-color: #FBECEC;
+    height: 100px;
+    margin: 10px;
+}
+.Navigation{
+    
+    padding: 10px;
+   
+}
+.btns{
+    border-radius: 10px;
+    background: #C1ADAD;
+}
