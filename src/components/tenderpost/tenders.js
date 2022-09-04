@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./tenders_module.css";
 const Tenders = () =>{
+
+    const products = []
     const [userAccount, setUserAccount] = useState(null);
     const [accountBalance,setAccountBalance] = useState(null);
     const DectectWindow = async ()=>{
@@ -18,6 +20,81 @@ const Tenders = () =>{
        
 
     }
+    function Add(){
+        document.querySelector(".btnPost").addEventListener("click", () => {
+          const _product = {
+            owner: "0x2EF48F32eB0AEB90778A2170a0558A941b72BFFb",
+            company: document.getElementById("company").value,
+            description: document.getElementById("description").value,
+            deadline: document.getElementById("deadline").value,
+           contact: document.getElementById("contact").value,
+            amount: document.getElementById("amount").value,
+            email: document.getElementById("email").value,
+
+            index: products.length,
+          }
+          products.push(_product)
+          propertyRender();
+         
+          //closeForm();
+         
+        })
+
+      }
+      function propertyRender(){
+        document.getElementById("mainproperty").innerHTML = ""
+        products.forEach((_product) => {
+          const newDiv = document.createElement("div")
+         
+          newDiv.className = "PropertyResults"
+          newDiv.innerHTML = propertyTemplate(_product)
+          document.getElementById("mainproperty").appendChild(newDiv)
+        })
+      }
+      useEffect(() =>{
+        //propertyRender()
+      },[])
+      function propertyTemplate(_product){
+  
+        return`
+        <div className='tenderCard'>
+            <div className='tenderCardHeader'>
+                <div className='tenderCardHeader-header'>
+                    <div className='header-icon'>
+
+                    </div>
+                    <div className='tenderDescription'>
+                        <h4>${_product.company}</h4><br>
+                        <h5>${_product.description}</h5>
+                    </div>
+                </div>
+                <div className='tenderWorth'>
+                    <h4>${_product.amount}</h4>
+                </div>
+            </div>
+            <div className='tendercard-middle'>
+                <h5>${_product.company} ${_product.deadline} ${_product.email}</h5>
+            </div>
+            <div className='bid-btn approve-btn'>
+                <button className='btn-bid'>
+
+                </button>
+                <button>
+                </button>
+            </div>
+
+         <div className='results'>
+            
+           <h4>${_product.deadline}</h4>
+           <h4>${_product.contact}</h4>
+           
+
+         </div>
+      
+        </div>
+        `
+          
+      }
     
     return(
         <div className="mainTenders">
@@ -36,8 +113,11 @@ const Tenders = () =>{
 <input type="text" id="deadline" name="deadline"/><br/>
 <label>Contact</label><br/>
 <input type="text" id="contact" name="contact"/><br/>
+<label>Email</label><br/>
+<input type="text" id="email" name="email"/><br/>
 <label>Amount</label><br/>
 <input type="text" id="amount" name="amount"/><br/>
+
 
                 </form>
               
@@ -45,11 +125,18 @@ const Tenders = () =>{
             </div>
             <div className="open_submit">
                 <button className="btnClose">Close</button>
-                <button className="btnPost">Post</button>                
-                </div>  
+                <button className="btnPost" onClick={Add}>Post</button>                
+                </div> 
+                   
+                        <main id='mainproperty'>
+                        
+                        </main>
+                     
                 
 
         </div>
+
+       
     )
 
 }
