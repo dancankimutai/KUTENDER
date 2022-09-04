@@ -1,0 +1,10 @@
+.border {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+    width: 300px;
+    height: 390px; 
+    font-family: 'Montserrat';
+    font-size: 10px;
+    background-color: #E1D5D5;
+}
