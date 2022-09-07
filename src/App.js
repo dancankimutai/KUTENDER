@@ -13,11 +13,8 @@ function App() {
      
   return (
     <div className="App">
-      <Helmet>
-      <style>{'body { background-color:#233456 ; }'}</style>
-      </Helmet>
-      <BiderForm/>
-      
+      {connectHome &&<Home onTenders={setConnectHome}/> }
+     {!connectHome &&<Tenders /> }
     </div>
   );
 }
