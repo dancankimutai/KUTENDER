@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import React from 'react';
+//import logo from './logo.svg';
 import Tenders from './components/tenderpost/tenders';
 import { useState } from "react";
 
