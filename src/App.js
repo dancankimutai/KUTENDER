@@ -1,21 +1,28 @@
 import logo from './logo.svg';
-import Tenders from './components/tenderpost/tenders';
+import Tenders from './components/tenderpost/Tenders';
 import { useState } from "react";
 import BiderForm from './components/biderpostform/BiderForm';
+import TenderAllocation  from './components/tenderallocation/tenderAllocation';
 import {Helmet} from 'react-helmet';
 import './App.css';
 import Home from "./components/home/Home";
+import { BrowserRouter,Router,Route, Routes } from 'react-router-dom';
+
 
 function App() {
-  const [connectHome,setConnectHome] = useState(true)
-  //{connectHome &&<Home onTenders={setConnectHome}/> }
-  //    {!connectHome &&<Tenders /> }
-     
+  
   return (
     <div className="App">
-      {connectHome &&<Home onTenders={setConnectHome}/> }
-     {!connectHome &&<Tenders /> }
-    </div>
+    <BrowserRouter>
+    <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path='/Tenders' element={<Tenders />}/>
+    <Route path='/BiderForm' element={<BiderForm/>}/>
+    <Route path='/TenderAllocation' element={<TenderAllocation/>}/>
+    </Routes>
+    </BrowserRouter>
+      </div>
+    
   );
 }
 

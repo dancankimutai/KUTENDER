@@ -1,9 +1,15 @@
-import "./home_module.css"
+import "./home_module.css";
+import { Link} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
-
-const Home = (props)=>{
+const Home = (props) => {
+    const navigate = useNavigate();
    
+  
     return(
+        <>
         <div className="home">
             <div className="logo">
                 <img src=""/>
@@ -14,21 +20,23 @@ const Home = (props)=>{
            <div className="Tender">
             <div className="Navigation">
             <h5>Find all the listed tenders here.</h5>
-<button className="btns">Available Tenders</button>
+            
+<button className="btns" onClick={() =>navigate('/TenderAllocation')}>Available Tenders</button>
+
             </div>
 
            </div>
            <div className="Tender">
            <div className="Navigation">
             <h5>Want a tender advertised?</h5>
-<button onClick={()=>props.onTenders(false)} className="btns">Post Tenders</button>
+<button  className="btns" onClick={() => navigate("/Tenders")}>Post Tenders</button>
             </div>
 
            </div>
            <div className="Tender">
            <div className="Navigation">
             <h5>View who was allocated a tender</h5>
-<button className="btns">Tender Allocation</button>
+<button className="btns" onClick={() => navigate("/BiderForm")}>Tender Allocation</button>
             </div>
            </div>
            <div className="Tender">
@@ -64,7 +72,8 @@ const Home = (props)=>{
 
 
         </div>
-    )
+        </>
+    )}
 
-}
+
 export default Home;
