@@ -1,8 +1,12 @@
+
 import "./home_module.css";
 import { Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
+
+import React from 'react';
+import "./home_module.css";
 
 const Home = (props) => {
     const navigate = useNavigate();
@@ -12,7 +16,7 @@ const Home = (props) => {
         <>
         <div className="home">
             <div className="logo">
-                <img src=""/>
+                <img src="" alt="logo"/>
                 <h1>logo</h1>
 
             </div>
