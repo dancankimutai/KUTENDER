@@ -1,3 +1,4 @@
+import React from 'react';
 import "./home_module.css"
 
 
@@ -6,7 +7,7 @@ const Home = (props)=>{
     return(
         <div className="home">
             <div className="logo">
-                <img src=""/>
+                <img src="" alt="logo"/>
                 <h1>logo</h1>
 
             </div>
