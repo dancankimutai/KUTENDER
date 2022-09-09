@@ -1,0 +1,74 @@
+.btnConnect{
+   
+    float: right;
+    margin: 10px;
+    
+}
+.mainBiderForm{
+    width: 100%;
+    height: 100%;
+    
+}
+.btnpostcancel{
+    position: absolute;
+    margin-top: 20px;
+   width: max-content;
+    bottom: 0;
+    margin: 20px;
+
+}
+
+
+#btnconnectAccount{
+    border-radius: 15px;
+    color: #7FDD6F;
+    background-color: #10185C;
+
+    
+}
+.biderForm{
+    position: relative;
+    height: 75%;
+    text-align: center;
+    column-gap: 10px;
+    width: 30%;
+  overflow: hidden;
+    border-radius: 15px;
+    border-color: #10185C;
+    float: left;
+    border-width: 2px;
+    border-style: solid;
+    margin-left: 25px;
+    margin-top: 25px;
+    background: #D9D9D9;
+}
+.BiderFormInput{
+   align-items: center;
+   margin-top: 30px;
+   border-radius: 15px;
+   padding: 2px;
+   margin: 5px;
+   height: 50%;
+   background-color: #7FDD6F;
+}
+.inputs{
+    margin-bottom: 50px;
+}
+.btnsclose{
+    margin-left: 10px;
+    margin-right: 150px;
+    margin-top: 10px;
+    background-color: #10185C;
+    border-radius: 15px;
+    color: aliceblue;
+}
+.btnsopen{
+    
+    margin-top: 10px;
+    background-color: #10185C;
+    border-radius: 15px;
+    color: aliceblue;
+}
+.mainBiderForm{
+    position: fixed;
+}
