@@ -41,6 +41,10 @@ function readTenderDetails(uint _tenderIndex)public view returns (
     
 
 }
+//function to return the number of tender items
+function tenderTotals()public view returns(uint){
+    return tenderIndex;
+}
 
 
 }
