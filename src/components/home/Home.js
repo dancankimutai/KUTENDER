@@ -1,10 +1,17 @@
+
+import "./home_module.css";
+import { useNavigate } from "react-router-dom";
+
+
 import React from 'react';
-import "./home_module.css"
+import "./home_module.css";
 
-
-const Home = (props)=>{
+const Home = (props) => {
+    const navigate = useNavigate();
    
+  
     return(
+        <>
         <div className="home">
             <div className="logo">
                 <img src="" alt="logo"/>
@@ -15,14 +22,16 @@ const Home = (props)=>{
            <div className="Tender">
             <div className="Navigation">
             <h5>Find all the listed tenders here.</h5>
-<button className="btns">Available Tenders</button>
+            
+<button className="btns" onClick={() =>navigate('/DisplayAvailableTenders')}>Available Tenders</button>
+
             </div>
 
            </div>
            <div className="Tender">
            <div className="Navigation">
             <h5>Want a tender advertised?</h5>
-<button onClick={()=>props.onTenders(false)} className="btns">Post Tenders</button>
+<button  className="btns" onClick={() => navigate("/Tenders")}>Post Tenders</button>
             </div>
 
            </div>
@@ -65,7 +74,8 @@ const Home = (props)=>{
 
 
         </div>
-    )
+        </>
+    )}
 
-}
+
 export default Home;

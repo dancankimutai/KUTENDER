@@ -1,8 +1,11 @@
-import React from 'react'
-import View from './View';
 
-export const tenderAllocation = () => {
+
+
+import React from 'react'
+
+function tenderAllocation() {
   return (
+    
     <div className='tenderAllocationContainer'>
         <div className='tenderAllocationDetails'>
             <table className='tenderAllocationTable'>
@@ -11,7 +14,7 @@ export const tenderAllocation = () => {
                         <th>Tender: </th>
                     </thead>
                     <td>
-                        <View/>
+                        
                     </td>
                 </tr>
             </table>
@@ -19,3 +22,5 @@ export const tenderAllocation = () => {
     </div>
   )
 }
+
+export default tenderAllocation;
