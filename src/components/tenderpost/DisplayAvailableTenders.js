@@ -4,8 +4,13 @@ import { RiBuilding2Fill} from 'react-icons/ri';
 import { BsTrash } from 'react-icons/bs';
 import{ MdDateRange } from 'react-icons/md';
 import { HiOutlineMail } from 'react-icons/hi';
+import { useNavigate } from "react-router-dom";
+
+
 
 export const DisplayTenders =({tenders, deleteTender}) =>{
+   
+    const navigate = useNavigate();
     
     return tenders.map(tender => (
         
@@ -22,13 +27,15 @@ export const DisplayTenders =({tenders, deleteTender}) =>{
                 <h5><GiRotaryPhone/>&nbsp;{tender.contact}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;{tender.deadline} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;{tender.email}</h5>
             </div>
             <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
-                <button className='btn-bid' id='btn-bid'>BID</button>
+                <button className='btn-bid' id='btn-bid' onClick={ () =>navigate("/BiderForm")}>BID</button>
                 <button className='btn-aprove'>Approve</button>
                 <button className="deletebtn" onClick={()=> deleteTender(tender.contact)}><BsTrash/></button>
             </div>
+            
 
         </div>
           
      ))
      
   }
+  export default DisplayTenders;

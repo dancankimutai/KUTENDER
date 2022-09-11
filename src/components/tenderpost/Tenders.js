@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import "./tenders_module.css";
-import { DisplayTenders } from './displayAvailableTenders';
+import { DisplayTenders } from './DisplayAvailableTenders';
+import Available from './Available';
 
 //Getting the values of local storage
 const getDatafromLS=()=>{
@@ -13,6 +14,7 @@ const getDatafromLS=()=>{
         return[]
     }
 }
+
 
 
 export const Tenders = () =>
@@ -35,7 +37,7 @@ export const Tenders = () =>
 
 
 //main array of tender details objects state
-const[tenders, setTenders] = useState(getDatafromLS());
+const [tenders, setTenders] = useState(getDatafromLS());
 
 //input field states
 const [companyName, setCompanyName] = useState('');
@@ -95,31 +97,33 @@ return(
                 <label>Tender Description</label><br/>
                 <input type="text" id="description" name="description" required onChange = {(e) => setDescription(e.target.value)} value ={description}/><br/>
                 <label>DeadLine</label><br/>
-                <input type="text" id="deadline" name="deadline" required onChange = {(e) => setDeadline(e.target.value)} value ={deadline}/><br/>
+                <input type="date" id="deadline" name="deadline" required onChange = {(e) => setDeadline(e.target.value)} value ={deadline}/><br/>
                 <label>Contact</label><br/>
                 <input type="text" id="contact" name="contact" required onChange = {(e) => setContact(e.target.value)} value ={contact}/><br/>
                 <label>Email</label><br/>
-                <input type="text" id="email" name="email" required onChange = {(e) => setEmail(e.target.value)} value ={email}/><br/>
+                <input type="email" id="email" name="email" required onChange = {(e) => setEmail(e.target.value)} value ={email}/><br/>
                 <label>Amount</label><br/>
                 <input type="text" id="amount" name="amount" required onChange = {(e) => setAmount(e.target.value)} value ={amount}/><br/>
             
         
             {/* <button className="btnClose">Close</button> */}
-            <button className="btnPost" type="submit" value="Submit">Post</button> 
+            <button className="btnPost" type="submit" value="Submit" >Post</button> 
             </form>              
         </div> 
 
                
-            <main id='mainproperty'>
+        
+        <main id='mainproperty'>
                 <DisplayTenders tenders={tenders} deleteTender={deleteTender}/>
-            </main>
-                 
+                <Available tenders={tenders} deleteTender={deleteTender}/>
+            </main> 
             
 
     </div>
-
+    
    
 )
 
 }
+
 export default Tenders;

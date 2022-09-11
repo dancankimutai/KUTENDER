@@ -8,6 +8,8 @@ import {Helmet} from 'react-helmet';
 import './App.css';
 import Home from "./components/home/Home";
 import { BrowserRouter,Router,Route, Routes } from 'react-router-dom';
+import DisplayTenders from './components/tenderpost/DisplayAvailableTenders';
+import Available from './components/tenderpost/Available';
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
     <Route path='/Tenders' element={<Tenders />}/>
     <Route path='/BiderForm' element={<BiderForm/>}/>
     <Route path='/TenderAllocation' element={<TenderAllocation/>}/>
+    <Route path='/DisplayAvailableTenders' element={<DisplayTenders/>}/>
+    <Route path='Available' elment={<Available/>}/>
     </Routes>
     </BrowserRouter>
       </div>

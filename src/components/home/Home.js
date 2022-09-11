@@ -1,9 +1,7 @@
 
 import "./home_module.css";
-import { Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+
 
 import React from 'react';
 import "./home_module.css";
@@ -25,7 +23,7 @@ const Home = (props) => {
             <div className="Navigation">
             <h5>Find all the listed tenders here.</h5>
             
-<button className="btns" onClick={() =>navigate('/TenderAllocation')}>Available Tenders</button>
+<button className="btns" onClick={() =>navigate('/DisplayAvailableTenders')}>Available Tenders</button>
 
             </div>
 
@@ -40,7 +38,7 @@ const Home = (props) => {
            <div className="Tender">
            <div className="Navigation">
             <h5>View who was allocated a tender</h5>
-<button className="btns" onClick={() => navigate("/BiderForm")}>Tender Allocation</button>
+<button className="btns">Tender Allocation</button>
             </div>
            </div>
            <div className="Tender">
