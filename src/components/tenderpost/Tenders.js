@@ -233,13 +233,13 @@ const handleAddTender=(e)=>
             <div className='tenderCardHeader' id='tenderCardHeader'>
                 
                     
-                        <p><RiBuilding2Fill/><b>Company ${tenders.companyNames}</b></p>
+                        <p><RiBuilding2Fill/><b>Company : ${tenders.companyNames}</b></p>
                         <p><b>TenderDescription:</b> ${tenders.tenderDescriptions}</p>
                         <h4>Amount: ${tenders.tenderAmounts}</h4>
                 
             </div>
             <div className='tenderCard-middle' id='tendercard-middle'>
-                <h5><GiRotaryPhone/>&nbsp;${tenders.contactEmails}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;${tenders.deadlineDates} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;${tenders.contactEmails}</h5>
+                <h5><GiRotaryPhone/>&nbsp;contact:${tenders.contactEmails}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;deadline:${tenders.deadlineDates} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;${tenders.contactEmails}</h5>
             </div>
             <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
                 <button className='btn-bid' id='btn-bid'>BID</button>
