@@ -26,7 +26,7 @@ import { useNavigate } from "react-router-dom";
                   </div>
                  <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
                      <button className='btn-bid' id='btn-bid' >BID</button>
-                     <button className='btn-aprove'>Approve</button>
+                     <button className='btn-aprove' onClick={props.approve}>Approve</button>
                      <button className="deletebtn" ><BsTrash/></button>
                   </div>
                  

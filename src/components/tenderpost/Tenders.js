@@ -333,7 +333,7 @@ return(
 
                
             <main ref={ref} >
-                <DisplayTenders tenders={Tenders}  /> 
+                <DisplayTenders tenders={Tenders} approve={Approve}  /> 
                 {/* tenders={Tenders} */}
                 {/* {/* deleteTender={deleteTender} */}
             </main>
