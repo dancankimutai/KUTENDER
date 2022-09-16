@@ -33,7 +33,7 @@ import { BigNumber } from 'ethers';
     let btnapprove = useRef(null);
     //let Tenders =[];
     const [Tenders, setTenders] = useState([]);
-    const TenderOwnerAddress ="0xC54Ee3Fc2Ff8FC326C38CCfA7C13740c23fdB33f";
+    const TenderOwnerAddress ="0x298E18f27318524013DB17d59808Bdcd256c6B8D";
     const [tenderslength,setLength] = useState(0);
     const web3ModalRef = useRef();
     const [walletconnect,setWalletConnect] = useState(false);
@@ -91,11 +91,11 @@ for(let i =0;i < tenderLength;i++){
         resolve({
              owners:t[0],
             companyNames:t[1],
-
           tenderDescriptions:t[2],  
              deadlineDates:t[3],
              contactEmails:t[4],
              tenderAmounts:t[5],
+             tenderindexs:t[6],
             
         });
         reject(new Error('Will this be ignored?')); // ignored

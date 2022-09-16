@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { RiBuilding2Fill} from 'react-icons/ri';
 import { BsTrash } from 'react-icons/bs';
@@ -9,24 +9,27 @@ import { useNavigate } from "react-router-dom";
 
 
  const DisplayTenders =(props) =>{
+  const navigate = useNavigate();
+  
     return <div className="card-container">
 
-{props.tenders.map((tender) =>(
-     <div className='tenderCard' >
+{props.tenders.map((tender,index) =>(
+     <div className='tenderCard' key={tender.tenderindexs} >
                   <div className='tenderCardHeader' id='tenderCardHeader'>
                      
                          
                              <p><RiBuilding2Fill/><b> {tender.companyNames}</b></p>
                              <p>{tender.tenderDescriptions}</p>
                              <h4>{tender.tenderAmounts/1}</h4>
-                     
+                           
                  </div>
                  <div className='tenderCard-middle' id='tendercard-middle'>
                      <h5><GiRotaryPhone/>&nbsp;{tender.contactEmails}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;{tender.deadlineDates} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;{tender.email}</h5>
                   </div>
                  <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
-                     <button className='btn-bid' id='btn-bid' >BID</button>
-                     <button className='btn-aprove' onClick={props.approve}>Approve</button>
+                  
+                     <button className='btn-bid' onClick={() =>navigate('/BiderForm',{ state: { id:index } })} id='btn-bid' >BID</button>
+                     <button className='btn-aprove' onClick={props.Approve}>Approve</button>
                      <button className="deletebtn" ><BsTrash/></button>
                   </div>
                  

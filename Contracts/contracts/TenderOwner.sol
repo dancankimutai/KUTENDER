@@ -12,12 +12,14 @@ struct TenderDetails{
     string deadlineDate;
     string contactEmail;
     uint tenderAmount;
+    uint tendersindex;
 }
 mapping(uint => TenderDetails) tenderItems;
 uint tenderIndex=0;
 
 function writeTenderDetails(string memory _companyName,string memory _tenderDescription,string memory _deadlineDate,string memory _contactEmail,uint _tenderAmount)public{
-    tenderItems[tenderIndex] = TenderDetails(payable(msg.sender),_companyName,_tenderDescription,_deadlineDate,_contactEmail,_tenderAmount);
+    uint _tendersindex = tenderIndex;
+    tenderItems[tenderIndex] = TenderDetails(payable(msg.sender),_companyName,_tenderDescription,_deadlineDate,_contactEmail,_tenderAmount,_tendersindex);
     tenderIndex = tenderIndex.add(1);
 
 }
@@ -28,6 +30,7 @@ function readTenderDetails(uint _tenderIndex)public view returns (
      string memory,
       string memory,
        string memory,
+       uint,
        uint
 ){
     return(
@@ -36,7 +39,8 @@ function readTenderDetails(uint _tenderIndex)public view returns (
           tenderItems[_tenderIndex].tenderDescription,
            tenderItems[_tenderIndex].deadlineDate,
             tenderItems[_tenderIndex].contactEmail,
-             tenderItems[_tenderIndex].tenderAmount);
+             tenderItems[_tenderIndex].tenderAmount,
+             tenderItems[_tenderIndex].tendersindex);
 
     
 
