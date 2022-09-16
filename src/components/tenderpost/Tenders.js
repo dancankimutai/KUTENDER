@@ -1,18 +1,14 @@
 import React from 'react';
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect,useRef,useCallback } from "react";
 import "./tenders_module.css";
-//import { DisplayTenderss } from './displayAvailableTenders';
+import DisplayTenders from './DisplayAvailableTenders';
 import Web3Modal from "web3modal"
 import {providers,Contract} from "ethers";
 import {ABI} from "../tenderpost_abi";
 //import Web3 from 'web3';
 import { BigNumber } from 'ethers';
 //from display
-import { GiRotaryPhone } from 'react-icons/gi';
-import { RiBuilding2Fill} from 'react-icons/ri';
-import { BsTrash } from 'react-icons/bs';
-import{ MdDateRange } from 'react-icons/md';
-import { HiOutlineMail } from 'react-icons/hi';
+
 
 
 
@@ -34,9 +30,10 @@ import { HiOutlineMail } from 'react-icons/hi';
  const Tenders = () =>{
     let ref = useRef(null);
     let getformdiv = useRef(null);
-    
-    let Tenders =[];
-    const TenderOwnerAddress ="0xC54Ee3Fc2Ff8FC326C38CCfA7C13740c23fdB33f";
+    let btnapprove = useRef(null);
+    //let Tenders =[];
+    const [Tenders, setTenders] = useState([]);
+    const TenderOwnerAddress ="0x298E18f27318524013DB17d59808Bdcd256c6B8D";
     const [tenderslength,setLength] = useState(0);
     const web3ModalRef = useRef();
     const [walletconnect,setWalletConnect] = useState(false);
@@ -57,6 +54,7 @@ const [address,setaddress] = useState(null);
                ]
               
                try {
+               
                 const signer = await getProviderOrSigner(true);
                 const tenderContract = new Contract(
                     TenderOwnerAddress,
@@ -75,7 +73,7 @@ const [address,setaddress] = useState(null);
              getAllTenders()
             }
             //getAllTenders
-            const getAllTenders = async ()=>{
+            const getAllTenders =  useCallback(async ()=>{
                 let _tenders =[];
                 const provider = await getProviderOrSigner();
                 const TenderContracts = new Contract(
@@ -93,11 +91,11 @@ for(let i =0;i < tenderLength;i++){
         resolve({
              owners:t[0],
             companyNames:t[1],
-
           tenderDescriptions:t[2],  
              deadlineDates:t[3],
              contactEmails:t[4],
              tenderAmounts:t[5],
+             tenderindexs:t[6],
             
         });
         reject(new Error('Will this be ignored?')); // ignored
@@ -108,23 +106,25 @@ for(let i =0;i < tenderLength;i++){
 
    
 }
-Tenders = await Promise.all(_tenders);
-renderProducts();
+const tenderss = await Promise.all(_tenders);
+setTenders(tenderss);
+//renderProducts();
 
 //add function to render tenders
-            }
+            },[])
 
 
-function renderProducts() {
-    ref.current.innerHTML = ""
+// function renderProducts() {
+//     ref.current.innerHTML = ""
     
-    Tenders.forEach((_product) => {
-        const newDiv = document.createElement("div")
-        newDiv.className = "tenderTemplates"
-        newDiv.innerHTML = DisplayTenders(_product)
-        ref.current.appendChild(newDiv)
-    })
-  }
+
+//     Tenders.forEach((_product) => {
+//         const newDiv = document.createElement("div")
+//         newDiv.className = "tenderTemplates"
+//         newDiv.innerHTML = DisplayTenders(_product)
+//         ref.current.appendChild(newDiv);
+//     })
+//   }
              
              //getTotalTendersLength from the cntract
 // const getTotalTendersLength = async ()=>{
@@ -224,34 +224,43 @@ const handleAddTender=(e)=>
     setEmail('');
     setAmount('');
 }
+//btnapprove.current
+const Approve =()=>{
+    alert("yooj");
+}
 //display
- const DisplayTenders =(tenders) =>{
-    console.log(tenders.companyNames);
+//  const DisplayTenders =(tenders) =>{
+//     console.log(tenders.companyNames);
+//    // const items = JSON.stringify(tenders);
     
-    return `    
-        <div className='tenderCard' key= ${tenders.contactEmails}>
-            <div className='tenderCardHeader' id='tenderCardHeader'>
+//     return `   
+//         <div className='tenderCard' key= ${tenders.contactEmails}>
+//             <div className='tenderCardHeader' id='tenderCardHeader'>
                 
                     
-                        <p><RiBuilding2Fill/><b>Company : ${tenders.companyNames}</b></p>
-                        <p><b>TenderDescription:</b> ${tenders.tenderDescriptions}</p>
-                        <h4>Amount: ${tenders.tenderAmounts}</h4>
+//                         <p><RiBuilding2Fill/><b>Company : ${tenders.companyNames}</b></p>
+//                         <p><b>TenderDescription:</b> ${tenders.tenderDescriptions}</p>
+//                         <h4>Amount: ${tenders.tenderAmounts}</h4>
                 
-            </div>
-            <div className='tenderCard-middle' id='tendercard-middle'>
-                <h5><GiRotaryPhone/>&nbsp;contact:${tenders.contactEmails}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;deadline:${tenders.deadlineDates} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;${tenders.contactEmails}</h5>
-            </div>
-            <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
-                <button className='btn-bid' id='btn-bid'>BID</button>
-                <button onClick={} className='btn-aprove' id='btn-aprove'>Approve</button>
-                <button className="deletebtn" ><BsTrash/></button>
-            </div>
+//             </div>
+//             <div className='tenderCard-middle' id='tendercard-middle'>
+//                 <h5><GiRotaryPhone/>contact:${tenders.contactEmails}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;deadline:${tenders.deadlineDates} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;${tenders.contactEmails}</h5>
+//             </div>
+//             <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
+//                 <button className='btn-bid' id='btn-bid'>BID</button>
+//                 <button  onClick="{Approve()}" className='btn-aprove' id='btn-aprove'>Approve</button>
+//                 <button className="deletebtn" ><BsTrash/></button>
+                
+//             </div>
 
-        </div>
+//         </div>
           
-     )
-     `
-  }
+//      )
+//      `
+     
+//   }
+  //button.addEventListener("click", approve);
+  
   
 
   const openForm =()=>{
@@ -287,8 +296,9 @@ useEffect(()=>{
       });
       //getTotalTendersLength();
       getAllTenders();
-      renderProducts();
+      //renderProducts();
 },[walletconnect,tenderslength]);
+
 
 
 return(
@@ -323,9 +333,9 @@ return(
 
                
             <main ref={ref} >
-                {/* <DisplayTenders  /> */}
+                <DisplayTenders tenders={Tenders} approve={Approve}  /> 
                 {/* tenders={Tenders} */}
-                {/* deleteTender={deleteTender} */}
+                {/* {/* deleteTender={deleteTender} */}
             </main>
                  
             
