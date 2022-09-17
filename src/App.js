@@ -10,7 +10,7 @@ import Home from "./components/home/Home";
 import { BrowserRouter,Router,Route, Routes } from 'react-router-dom';
 import DisplayTenders from './components/tenderpost/DisplayAvailableTenders';
 import Available from './components/tenderpost/Available';
-import approve from './components/approve/approve';
+import Approve from './components/approve/Approve';
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
     <Route path='/TenderAllocation' element={<TenderAllocation/>}/>
     <Route path='/DisplayAvailableTenders' element={<DisplayTenders/>}/>
     <Route path='/Available' element={<Available/>}/>
-    <Route path='/approve' element={<approve/>}/>
+    <Route path='/Approve' element={<Approve/>}/>
     </Routes>
     </BrowserRouter>
       </div>
