@@ -12,10 +12,12 @@ struct biderDetails{
     string goodsDealsWith;
 }
 mapping (address => biderDetails) bidItems;
+uint bidstenderlength;
 
  
 function writeBiderDetails(uint _tenderIndex,string memory _companyName,string memory _contact,string memory _goodsDealsWith)public{
     bidItems[tenderItems[_tenderIndex].owner] = biderDetails(payable(msg.sender),_companyName,_contact,_goodsDealsWith);
+    bidstenderlength = bidstenderlength.add(1);
 }
 function readBiderDetails(uint _tenderIndex)public  view  returns(
     address,
@@ -29,5 +31,7 @@ function readBiderDetails(uint _tenderIndex)public  view  returns(
     bidItems[tenderItems[_tenderIndex].owner].goodsDealsWith
     );
 } 
-
+function getTotalBindsLength()public view returns(uint){
+    return bidstenderlength;
+}
 }
