@@ -34,7 +34,7 @@ import { BigNumber } from 'ethers';
     let btnapprove = useRef(null);
     //let Tenders =[];
     const [Tenders, setTenders] = useState([]);
-    const TenderOwnerAddress = "0x69D143d4aF4c767234e8E9e93f82ea1bAC0b7107"//"0x298E18f27318524013DB17d59808Bdcd256c6B8D";
+    const TenderOwnerAddress ="0x98e97F1c51554de4A21158bddddcf86ce936f83F"
     const [tenderslength,setLength] = useState(0);
     const web3ModalRef = useRef();
     const [walletconnect,setWalletConnect] = useState(false);
