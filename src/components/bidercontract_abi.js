@@ -1,4 +1,4 @@
-export const BiderAbi =[
+export const BiderAbi =  [
   {
     "inputs": [],
     "name": "getTotalBindsLength",
@@ -16,7 +16,7 @@ export const BiderAbi =[
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_tenderIndex",
+        "name": "_tenderbidsIndex",
         "type": "uint256"
       }
     ],
@@ -41,6 +41,16 @@ export const BiderAbi =[
         "internalType": "string",
         "name": "",
         "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
