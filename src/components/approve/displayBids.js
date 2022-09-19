@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 
  const DisplayBids =(props) =>{
-  
+  const [color,setColor] = useState(true);
   
     return <div className="card-container">
 
@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
                              <p>{tender.contactAddress}</p>
                              <h4>{tender.goodDealsWith}</h4>
                              
-                             <h4>{tender.choice==1?"Approved":"Waiting"}</h4>
+                             <h4 style={{color:color?"green":"red"}}>{tender.choice==1?"Approved" :"Waiting" }</h4>
                            
                  </div>
                  <div className='tenderCard-middle' id='tendercard-middle'>
