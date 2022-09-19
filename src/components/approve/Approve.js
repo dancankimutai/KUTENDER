@@ -49,8 +49,8 @@ const getAllBids =async () =>{
         contactAddress : bids[2],
         goodDealsWith : bids[3],
         companyOfferTender : bids[4],
-        bidIndex: bids[5]
-
+        bidIndex: bids[5],
+        choice: bids[6]
       }
 
       );
