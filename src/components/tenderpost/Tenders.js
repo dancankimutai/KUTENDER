@@ -71,48 +71,48 @@ const [address,setaddress] = useState(null);
                alert("the error is",error)
               }
               alert(`🎉 You successfully added "${params[0]}".`)
-             getAllTenders()
+            // getAllTenders()
             }
             //getAllTenders
-            const getAllTenders =  useCallback(async ()=>{
-                let _tenders =[];
-                const provider = await getProviderOrSigner();
-                const TenderContracts = new Contract(
-                    TenderOwnerAddress,
-                    BiderAbi,
-                    provider,
-                ) ;
+//             const getAllTenders =  useCallback(async ()=>{
+//                 let _tenders =[];
+//                 const provider = await getProviderOrSigner();
+//                 const TenderContracts = new Contract(
+//                     TenderOwnerAddress,
+//                     BiderAbi,
+//                     provider,
+//                 ) ;
                 
-                const tenderLength = await TenderContracts.tenderTotals();
+//                 const tenderLength = await TenderContracts.tenderTotals();
 
 
-for(let i =0;i < tenderLength;i++){
-    let _tender = new Promise(async(resolve,reject)=>{
-        let t = await  TenderContracts.readTenderDetails(i);        
-        resolve({
-             owners:t[0],
-            companyNames:t[1],
-          tenderDescriptions:t[2],  
-             deadlineDates:t[3],
-             contactEmails:t[4],
-             tenderAmounts:t[5],
-             tenderindexs:t[6],
+// for(let i =0;i < tenderLength;i++){
+//     let _tender = new Promise(async(resolve,reject)=>{
+//         let t = await  TenderContracts.readTenderDetails(i);        
+//         resolve({
+//              owners:t[0],
+//             companyNames:t[1],
+//           tenderDescriptions:t[2],  
+//              deadlineDates:t[3],
+//              contactEmails:t[4],
+//              tenderAmounts:t[5],
+//              tenderindexs:t[6],
             
-        });
-        reject(new Error('Will this be ignored?')); // ignored
+//         });
+//         reject(new Error('Will this be ignored?')); // ignored
  
         
-    })
-    _tenders.push(_tender);
+//     })
+//     _tenders.push(_tender);
 
    
-}
-const tenderss = await Promise.all(_tenders);
-setTenders(tenderss);
-//renderProducts();
+// }
+// const tenderss = await Promise.all(_tenders);
+// setTenders(tenderss);
+// //renderProducts();
 
-//add function to render tenders
-            },[])
+// //add function to render tenders
+//             },[])
 
 
 // function renderProducts() {
@@ -226,9 +226,7 @@ const handleAddTender=(e)=>
     setAmount('');
 }
 //btnapprove.current
-const Approve =()=>{
-    alert("yooj");
-}
+
 //display
 //  const DisplayTenders =(tenders) =>{
 //     console.log(tenders.companyNames);
@@ -296,7 +294,8 @@ useEffect(()=>{
         
       });
       //getTotalTendersLength();
-      getAllTenders();
+     // getAllTenders();
+     getProviderOrSigner();
       //renderProducts();
 },[walletconnect,tenderslength]);
 
@@ -308,7 +307,7 @@ return(
             <h2 id="connect">Connect<br/>Wallet</h2>
         </button>
         
-       <button className='btnPost' onClick={openForm}>Add</button>
+       {/* <button className='btnPost' onClick={openForm}>Add</button> */}
         
         <div ref={getformdiv}  className="postForm">
             <form onSubmit={ handleAddTender}>
@@ -334,7 +333,7 @@ return(
 
                
             <main ref={ref} >
-                <DisplayTenders tenders={Tenders} approve={Approve}  /> 
+                {/* <DisplayTenders tenders={Tenders} approve={Approve}  />  */}
                 {/* tenders={Tenders} */}
                 {/* {/* deleteTender={deleteTender} */}
             </main>
