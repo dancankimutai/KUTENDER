@@ -40,7 +40,7 @@ const getAllBids =async () =>{
     provider,
   )
   const totalItemsLength = await BidersContract.getTotalBindsLength();
-  alert(totalItemsLength);
+  //alert(totalItemsLength);
   for(let i=0;i< (totalItemsLength);i++){
     let _tenderBids = new Promise(async(resolve,reject)=>{
       let bids = await BidersContract.readBiderDetails(i);
@@ -77,7 +77,7 @@ const approveTender =async (ids)=>{
     signer,
   )
   const approves = await BiderContract.approveTender(ids);
-  alert(approves);
+ // alert(approves);
   
 }
 
@@ -99,7 +99,7 @@ useEffect(()=>{
   
   return (
     <div>
-      <h1>hello</h1>
+      
       <main>
         <DisplayBids bids={BidTenders} approve={approveTender}/>
       </main>
