@@ -317,11 +317,11 @@ return(
                 <label>Tender Description</label><br/>
                 <input type="text" id="description" name="description" required onChange = {(e) => setDescription(e.target.value)} value ={description}/><br/>
                 <label>DeadLine</label><br/>
-                <input type="text" id="deadline" name="deadline" required onChange = {(e) => setDeadline(e.target.value)} value ={deadline}/><br/>
+                <input type="date" id="deadline" name="deadline" required onChange = {(e) => setDeadline(e.target.value)} value ={deadline}/><br/>
                 <label>Contact</label><br/>
                 <input type="text" id="contact" name="contact" required onChange = {(e) => setContact(e.target.value)} value ={contact}/><br/>
                 <label>Email</label><br/>
-                <input type="text" id="email" name="email" required onChange = {(e) => setEmail(e.target.value)} value ={email}/><br/>
+                <input type="email" id="email" name="email" required onChange = {(e) => setEmail(e.target.value)} value ={email}/><br/>
                 <label>Amount</label><br/>
                 <input type="text" id="amount" name="amount" required onChange = {(e) => setAmount(e.target.value)} value ={amount}/><br/>
             
