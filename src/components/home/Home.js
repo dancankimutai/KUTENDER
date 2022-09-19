@@ -14,7 +14,9 @@ const Home = (props) => {
                     <Logo />
 
                 </div>
+
             </div>
+
 
             <div className="firstPage">
                 <div id="appExplanation">
