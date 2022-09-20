@@ -9,7 +9,7 @@ function Approve() {
   const [walletconnect,setWalletConnect] = useState(false);
   const [BidTenders,setBidTenders] = useState([]);
   const [index,setIndex] = useState();
-  const ContractBiderAddress ="0x98e97F1c51554de4A21158bddddcf86ce936f83F";
+  const ContractBiderAddress ="0xA05239144E9039232f4C6b875EA1d26f91111656";
 const Web3ModalRef = useRef();
 //provide sugner or provider
 const getProviderOrSigner= async(needSigner = false)=>{
