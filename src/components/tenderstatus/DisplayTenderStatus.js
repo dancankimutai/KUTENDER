@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
- const DisplayBids =(props) =>{
+ const DisplayTenderStatus =(props) =>{
 
 
   const [color,setColor] = useState(true);
@@ -26,18 +26,13 @@ import { useNavigate } from "react-router-dom";
                              <h4>{tender.goodDealsWith}</h4>
 
                              
-                             <h4 style={{color:color?"green":"red"}}>{tender.choice==1?"Approved" :<h4 style={{color:color?"orange":"green"}}>Waiting</h4> }</h4>
+                             <h4 style={{color:color?"blue":"purple"}}>Status: {tender.choice==1?<h4 style={{color:color?"green":"orange"}}>Approved</h4> :<h4 style={{color:color?"orange":"green"}}>Waiting</h4> }</h4>
                            
                  </div>
                  <div className='tenderCard-middle' id='tendercard-middle'>
                      <h5><GiRotaryPhone/>&nbsp;{tender.companyOfferTender}&emsp;&emsp;&emsp;&emsp;<MdDateRange/>&nbsp;{tender.contactAddress} &emsp;&emsp;&emsp;&emsp;<HiOutlineMail/>&nbsp;{tender.contactAddress}</h5>
                   </div>
-                 <div className='bid-btn-approve-btn' id='bid-btn-approve-btn'>
-                  
-                     
-                     <button className='btn-aprove' onClick={()=>props.approve(index)}>Approve</button>
-                     <button className="deletebtn" ><BsTrash/></button>
-                  </div>
+                 
                  
      
               </div>
@@ -46,4 +41,4 @@ import { useNavigate } from "react-router-dom";
 
 </div>
 };
-export default DisplayBids;
+export default DisplayTenderStatus;

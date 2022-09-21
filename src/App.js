@@ -3,7 +3,7 @@ import React from 'react';
 import Tenders from './components/tenderpost/Tenders';
 import { useState } from "react";
 import BiderForm from './components/biderpostform/BiderForm';
-import TenderAllocation  from './components/tenderallocation/tenderAllocation';
+import TenderAllocation  from './components/tenderallocation/TenderAllocation';
 import {Helmet} from 'react-helmet';
 import './App.css';
 import Home from "./components/home/Home";
@@ -12,6 +12,7 @@ import DisplayTenders from './components/tenderpost/DisplayAvailableTenders';
 import Available from './components/tenderpost/Available';
 import Approve from './components/approve/Approve';
 import AvailableTenders from './components/tenderpost/AvailableTenders';
+import TenderStatus from './components/tenderstatus/TenderStatus';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <Route path='/DisplayAvailableTenders' element={<DisplayTenders/>}/>
     <Route path='/Available' element={<Available/>}/>
     <Route path='/AvailableTenders' element={<AvailableTenders/>}/>
+    <Route path='/TenderStatus' element={<TenderStatus/>}/>
     <Route path='/Approve' element={<Approve/>}/>
     </Routes>
     </BrowserRouter>
