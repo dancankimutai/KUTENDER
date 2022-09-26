@@ -1,5 +1,5 @@
 import './tender_allocation.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { RiBuilding2Fill } from 'react-icons/ri';
 import { BsTrash } from 'react-icons/bs';
@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const DisplayTenderAllocation = (props) => {
+  
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
 
 
   const [color, setColor] = useState(true);

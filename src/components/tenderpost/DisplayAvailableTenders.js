@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { RiBuilding2Fill } from 'react-icons/ri';
 import { BsTrash } from 'react-icons/bs';
@@ -9,6 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const DisplayTenders = (props) => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
+
   const navigate = useNavigate();
 
   return <div className="card-container">

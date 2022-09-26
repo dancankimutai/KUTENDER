@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './approve.css';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { RiBuilding2Fill } from 'react-icons/ri';
@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const DisplayBids = (props) => {
+  
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
 
 
   const [color, setColor] = useState(true);
