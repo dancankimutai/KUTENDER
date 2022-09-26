@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { RiBuilding2Fill } from 'react-icons/ri';
 import { MdDateRange } from 'react-icons/md';
@@ -9,6 +9,10 @@ import { MdOutlineDescription } from 'react-icons/md'
 
 
 const DisplayTenderStatus = (props) => {
+  
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
 
 
   const [color, setColor] = useState(true);

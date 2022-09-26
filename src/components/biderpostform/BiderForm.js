@@ -6,7 +6,9 @@ import { useRef, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { SiBitcoincash } from 'react-icons/si'
 
+
 import { providers, Contract } from "ethers";
+
 const BiderForm = () => {
     const { state } = useLocation();
     const { id } = state; // Read values passed on state
@@ -48,6 +50,7 @@ const BiderForm = () => {
         });
         getProviderOrSigner();
         settenderIndex(id);
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'});
 
     }, [])
     //btnsubmit to submit the biders tender details
