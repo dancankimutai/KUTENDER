@@ -36,7 +36,7 @@ const Tenders = () => {
     let btnapprove = useRef(null);
     //let Tenders =[];
     const [Tenders, setTenders] = useState([]);
-    const TenderOwnerAddress = "0xA05239144E9039232f4C6b875EA1d26f91111656"
+    const TenderOwnerAddress = "0xacFD859F76d76706D36D49FA204cD5A960E21397"
     const [tenderslength, setLength] = useState(0);
     const web3ModalRef = useRef();
     const [walletconnect, setWalletConnect] = useState(false);
@@ -341,7 +341,7 @@ const Tenders = () => {
 
                             <div className='postForm-buttons'>
                                 <button className="btnClose" onClick={() =>navigate('/Home')}>Close</button>
-                                <button className="btnPost" onClick={() => { btnPosts(); closeForm(); }} type="submit" value="Submit">Post</button>
+                                <button className="btnPost" onClick={() => { btnPosts() }} type="submit" value="Submit">Post</button>
                             </div>
                         </form>
                     </div>
