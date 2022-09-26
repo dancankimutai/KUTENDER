@@ -22,6 +22,7 @@ function App() {
     <BrowserRouter>
     <Routes>
     <Route path='/Home' element={<Home />}/>
+    <Route path='/' element={<Home />}/>
     <Route path='/Tenders' element={<Tenders />}/>
     <Route path='/BiderForm' element={<BiderForm/>}/>
     <Route path='/TenderAllocation' element={<TenderAllocation/>}/>
