@@ -20,7 +20,7 @@ const DisplayTenderAllocation = (props) => {
     <h1 id='tenders-allocaation-page-h1'>Tender Allocation</h1>
     <hr id='horizontal-line' />
     {props.bids.map((tender, index) => (
-      <div>
+      <div className='newdiv'>
          {(tender.choice === 1) ?
       <div className='tender-allocation-card' key={tender.bidIndex} >
 
@@ -37,7 +37,7 @@ const DisplayTenderAllocation = (props) => {
           </div>
           
       </div>
-      :"less"}
+      :``}
       </div>
 
     ))}
