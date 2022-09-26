@@ -5,7 +5,9 @@ import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 import "./TenderOwner.sol";
 contract  Bider is Ownable,TenderPoster{
     using  SafeMath for uint;
-    enum statuschoices{Waiting,Approved}
+    //include Rejected Status
+    
+    enum statuschoices{Waiting,Approved,Rejected}
     
 struct biderDetails{
     address payable bidowner;
@@ -91,5 +93,25 @@ function onlyApproveTender(uint  _tenderbidsIndex)public view    returns(address
     );
 
 }
+//Rejected Tenders
+//added
+function rejectTender(uint  _tenderbidsIndex)public   onlyOwner returns(address,
+    string memory,
+    string memory,
+    string memory
+    
+     ){
+        require(msg.sender ==  tenderItems[_tenderbidsIndex].owner,"Only The Owner can Approve");
+        require(bidItems[_tenderbidsIndex].choice == statuschoices.Waiting,"Waitng Aproval");
+       // choice = statuschoices.Approved;
+       bidItems[_tenderbidsIndex].choice = statuschoices.Rejected;
+         return(bidItems[_tenderbidsIndex].bidowner,
+    bidItems[_tenderbidsIndex].companyName,
+    bidItems[_tenderbidsIndex].contact,
+    bidItems[_tenderbidsIndex].goodsDealsWith
+    
+    
+    );
 
+}
 }

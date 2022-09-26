@@ -20,9 +20,11 @@ const DisplayTenderAllocation = (props) => {
     <h1 id='tenders-allocaation-page-h1'>Tender Allocation</h1>
     <hr id='horizontal-line' />
     {props.bids.map((tender, index) => (
+      <div>
+         {(tender.choice === 1) ?
       <div className='tender-allocation-card' key={tender.bidIndex} >
 
-        {(tender.choice == 1) ?
+       
           <div className='tender-allocation-card-header' id='tender-allocation-card-header'>
 
             <p className='tender-allocation-card-header-content'><RiBuilding2Fill /><b id='tenderee-name-allocation'> {tender.companyNames}</b></p>
@@ -33,7 +35,9 @@ const DisplayTenderAllocation = (props) => {
               <p className='tender-allocation-card-header-content' id='tenderer-name'><b> &ensp;&ensp; {tender.companyOfferTender}</b></p>
             
           </div>
-          : ``}
+          
+      </div>
+      :"less"}
       </div>
 
     ))}
