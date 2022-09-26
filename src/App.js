@@ -21,7 +21,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Home />}/>
+    <Route path='/Home' element={<Home />}/>
     <Route path='/Tenders' element={<Tenders />}/>
     <Route path='/BiderForm' element={<BiderForm/>}/>
     <Route path='/TenderAllocation' element={<TenderAllocation/>}/>

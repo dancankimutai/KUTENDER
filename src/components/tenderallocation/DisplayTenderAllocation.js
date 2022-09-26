@@ -1,5 +1,5 @@
 import './tender_allocation.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { RiBuilding2Fill } from 'react-icons/ri';
 import { BsTrash } from 'react-icons/bs';
@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const DisplayTenderAllocation = (props) => {
+  
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
 
 
   const [color, setColor] = useState(true);
@@ -20,7 +24,7 @@ const DisplayTenderAllocation = (props) => {
     <h1 id='tenders-allocaation-page-h1'>Tender Allocation</h1>
     <hr id='horizontal-line' />
     {props.bids.map((tender, index) => (
-      <div>
+      <div className='newdiv'>
          {(tender.choice === 1) ?
       <div className='tender-allocation-card' key={tender.bidIndex} >
 
@@ -37,7 +41,7 @@ const DisplayTenderAllocation = (props) => {
           </div>
           
       </div>
-      :"less"}
+      :``}
       </div>
 
     ))}

@@ -9,6 +9,7 @@ import { BiderAbi } from "../bidercontract_abi";
 //import Web3 from 'web3';
 import { BigNumber } from 'ethers';
 import { SiBitcoincash } from 'react-icons/si';
+import { useNavigate } from 'react-router-dom';
 //from display
 
 
@@ -151,6 +152,7 @@ const Tenders = () => {
         const accounts = await signer.getAddress();
         setaddress(accounts);
     }
+    const navigate=useNavigate();
 
     const getProviderOrSigner = async (needSigner = false) => {
         //connect metamask
@@ -296,6 +298,7 @@ const Tenders = () => {
         // getAllTenders();
         getProviderOrSigner();
         //renderProducts();
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'});
     }, [walletconnect, tenderslength]);
 
 
@@ -337,7 +340,7 @@ const Tenders = () => {
                             <input className="form-input" type="text" id="amount" name="amount" required onChange={(e) => setAmount(e.target.value)} value={amount} /><br />
 
                             <div className='postForm-buttons'>
-                                <button className="btnClose">Close</button>
+                                <button className="btnClose" onClick={() =>navigate('/Home')}>Close</button>
                                 <button className="btnPost" onClick={() => { btnPosts(); closeForm(); }} type="submit" value="Submit">Post</button>
                             </div>
                         </form>

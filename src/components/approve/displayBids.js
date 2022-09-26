@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './approve.css';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { RiBuilding2Fill } from 'react-icons/ri';
@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const DisplayBids = (props) => {
+  
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
 
 
   const [color, setColor] = useState(true);
@@ -19,7 +23,10 @@ const DisplayBids = (props) => {
   return <div className="approve-tender-main-page">
     <div className='approve-card-container'>
     {props.bids.map((tender, index) => (
+      <div>
+        {(tender.choice === 0)?
       <div className='approve-container' key={tender.bidIndex} >
+        
         <div className='approve-container-tenderee' id='approve-container-tenderee'>
         <div className="approveCardHeader-blank"></div>
         <div className='approve-container-tenderee-content'>
@@ -42,6 +49,8 @@ const DisplayBids = (props) => {
         </div>
 
 
+      </div>
+      :``}
       </div>
   
     ))}
