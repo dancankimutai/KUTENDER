@@ -4,7 +4,8 @@ import { BiderAbi } from "../bidercontract_abi";
 import Web3Modal from "web3modal";
 import { useRef, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
-import { SiBitcoincash } from 'react-icons/si'
+import { SiBitcoincash } from 'react-icons/si';
+import { useNavigate } from 'react-router-dom';
 
 
 import { providers, Contract } from "ethers";
@@ -75,10 +76,8 @@ const BiderForm = () => {
             alert(error)
         }
     }
-    //btntest
-    const test = () => {
-        alert(id);
-    }
+    const navigate=useNavigate();
+    
 
     return (
         <div className="mainBiderForm">
@@ -117,7 +116,7 @@ const BiderForm = () => {
                                 <label className="label">Link To Company Documents</label><br/>
                                 <input type="text" className="form-input" id="biderGoods" placeHolder="https://documents.tender.io" required onChange={(e) => setTypeOfGoods(e.target.value)} value={bidertypeOfGoods} /><br />
                                 <div className="btnpostcancel">
-                                    <button onClick={test} className="btnClose">Close</button>
+                                    <button onClick={() => navigate('/home')}className="btnClose">Close</button>
                                     <button onClick={btnsubmit} className="btnPost">Post</button>
                                 </div>
                             </form>
