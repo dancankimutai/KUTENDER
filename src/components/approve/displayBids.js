@@ -19,7 +19,10 @@ const DisplayBids = (props) => {
   return <div className="approve-tender-main-page">
     <div className='approve-card-container'>
     {props.bids.map((tender, index) => (
+      <div>
+        {(tender.choice === 0)?
       <div className='approve-container' key={tender.bidIndex} >
+        
         <div className='approve-container-tenderee' id='approve-container-tenderee'>
         <div className="approveCardHeader-blank"></div>
         <div className='approve-container-tenderee-content'>
@@ -42,6 +45,8 @@ const DisplayBids = (props) => {
         </div>
 
 
+      </div>
+      :``}
       </div>
   
     ))}
