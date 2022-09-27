@@ -9,7 +9,7 @@ function Approve() {
   const [walletconnect,setWalletConnect] = useState(false);
   const [BidTenders,setBidTenders] = useState([]);
   const [index,setIndex] = useState();
-  const ContractBiderAddress ="0xacFD859F76d76706D36D49FA204cD5A960E21397";
+  const ContractBiderAddress ="0x13A44fFe2a9166Ac6dA349837d30B3f47D79b3E8";
 const Web3ModalRef = useRef();
 //provide sugner or provider
 const getProviderOrSigner= async(needSigner = false)=>{
@@ -45,14 +45,13 @@ const getAllBids =async () =>{
     let _tenderBids = new Promise(async(resolve,reject)=>{
       let bids = await BidersContract.readBiderDetails(i);
       resolve({
-        owner : bids[0],
-        companyNames : bids[1],
-        contactAddress : bids[2],
-        goodDealsWith : bids[3],
-        companyOfferTender : bids[4],
-        bidIndex: bids[5], 
-        choice: bids[6]
-
+        companyNames : bids[0],
+        contactAddress : bids[1],
+        goodDealsWith : bids[2],
+        companyOfferTender : bids[3],
+        bidIndex: bids[4], 
+        choice: bids[5],
+        goodsdescription : bids[6]  
 
       }
 
