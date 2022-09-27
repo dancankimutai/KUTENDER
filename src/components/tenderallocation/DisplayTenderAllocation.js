@@ -31,12 +31,13 @@ const DisplayTenderAllocation = (props) => {
        
           <div className='tender-allocation-card-header' id='tender-allocation-card-header'>
 
-            <p className='tender-allocation-card-header-content'><RiBuilding2Fill /><b id='tenderee-name-allocation'> {tender.companyNames}</b></p>
-  
-            <p className='tender-allocation-card-header-content' id='tender-description'><MdOutlineDescription/> {tender.goodDealsWith}</p>
-            <p className='tender-allocation-card-header-content' id='tenderee-contact-allocation'><AiOutlinePhone/> {tender.contactAddress}</p>
+            <p className='tender-allocation-card-header-content'>From: <RiBuilding2Fill /><b id='tenderee-name-allocation'> {tender.companyNames}</b></p>
+            <p className='tender-allocation-card-header-content' id='tenderee-contact-allocation'>Contact :<AiOutlinePhone/> {tender.contactAddress}</p>
+            
+            <p className='tender-allocation-card-header-content' id='tender-description'>Tender: <MdOutlineDescription/> {tender.tenderDescription} </p>
+            
 
-              <p className='tender-allocation-card-header-content' id='tenderer-name'><b> &ensp;&ensp; {tender.companyOfferTender}</b></p>
+              <p className='tender-allocation-card-header-content' id='tenderer-name'>To :<b> &ensp;&ensp; {tender.companyOfferTender}</b></p>
             
           </div>
           

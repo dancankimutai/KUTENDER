@@ -17,6 +17,7 @@ struct biderDetails{
     string tenderOwnerName;
     uint bidsTenderIndex;
     statuschoices choice;
+    string goodsDescription;
 
 }
 mapping (uint => biderDetails) bidItems;
@@ -27,27 +28,28 @@ function writeBiderDetails(uint _tenderIndex,string memory _companyName,string m
     //require to bid onlyonce
     require(msg.sender != bidItems[_tenderIndex].bidowner,"Can Only Bid Once");
     uint _bidsindex = bidstenderlength;
-    bidItems[_tenderIndex] = biderDetails(payable(msg.sender),_companyName,_contact,_goodsDealsWith,tenderItems[_tenderIndex].companyName,_bidsindex,statuschoices.Waiting);
+    bidItems[_tenderIndex] = biderDetails(payable(msg.sender),_companyName,_contact,_goodsDealsWith,tenderItems[_tenderIndex].companyName,_bidsindex,statuschoices.Waiting,tenderItems[_tenderIndex].tenderDescription);
     bidstenderlength = bidstenderlength.add(1);
     //status
     //choice = statuschoices.Waiting;
 }
 function readBiderDetails(uint _tenderbidsIndex)public  view  returns(
-    address,
     string memory,
     string memory,
     string memory,
     string memory,
     uint ,
-    statuschoices
+    statuschoices,
+    string memory
 ){
-    return(bidItems[_tenderbidsIndex].bidowner,
+    return(
     bidItems[_tenderbidsIndex].companyName,
     bidItems[_tenderbidsIndex].contact,
     bidItems[_tenderbidsIndex].goodsDealsWith,
     bidItems[_tenderbidsIndex].tenderOwnerName,
     bidItems[_tenderbidsIndex].bidsTenderIndex,
-    bidItems[_tenderbidsIndex].choice
+    bidItems[_tenderbidsIndex].choice,
+    bidItems[_tenderbidsIndex].goodsDescription
     );
 } 
 function getTotalBindsLength()public view returns(uint){
