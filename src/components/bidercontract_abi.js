@@ -136,11 +136,6 @@ export const BiderAbi = [
     "name": "readBiderDetails",
     "outputs": [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
         "internalType": "string",
         "name": "",
         "type": "string"
@@ -169,6 +164,11 @@ export const BiderAbi = [
         "internalType": "enum Bider.statuschoices",
         "name": "",
         "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       }
     ],
     "stateMutability": "view",
@@ -221,6 +221,40 @@ export const BiderAbi = [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_tenderbidsIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "rejectTender",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
